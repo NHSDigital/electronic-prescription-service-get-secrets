@@ -1,6 +1,6 @@
 # Electronic Prescriptions Service Get Secrets
 
-![Build](https://github.com/NHSDigital/electronic-prescription-service-account-resources/workflows/release/badge.svg?branch=main)
+![Build](https://github.com/NHSDigital/electronic-prescription-service-get-secrets/workflows/release/badge.svg?branch=main)
 
 This repository hosts the Lambda layer responsible for securely managing and processing secrets used across various EPS-related applications.  
 It is called by an Apigee proxy that is defined at https://github.com/NHSDigital/prescriptions-for-patients
