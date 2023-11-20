@@ -13,7 +13,6 @@
   "keywords": [],
   "author": "NHS Digital",
   "license": "MIT",
-  "workspaces": [],
   "devDependencies": {
     "@types/aws-lambda": "^8.10.126",
     "@types/jest": "^29.5.8",
