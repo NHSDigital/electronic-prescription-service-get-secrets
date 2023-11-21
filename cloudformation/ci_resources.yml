@@ -51,7 +51,7 @@ Resources:
                   - "cloudformation:DescribeStackEvents"
                   - "cloudformation:GetTemplateSummary"
                   - "cloudformation:ListStacks"
-                Resource: "*"
+                Resource: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/apigateway/*"
         - PolicyName: AssumeExecutionRole
           PolicyDocument:
             Version: "2012-10-17"
