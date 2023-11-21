@@ -166,7 +166,7 @@ Resources:
                   - "acm:RemoveTagsFromCertificate"
                   - "acm:RenewCertificate"
                   - "acm:RequestCertificate"
-                Resource: "*"
+                Resource: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/apigateway/*"
 
 Outputs:
   CloudFormationDeployRole:
