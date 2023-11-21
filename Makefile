@@ -23,6 +23,11 @@ compile-go:
 lint-go:
 	cd src && golangci-lint run
 
+lint-githubactions:
+	actionlint
+
+lint: lint-go
+
 clean:
 	rm -rf ./lib
 
