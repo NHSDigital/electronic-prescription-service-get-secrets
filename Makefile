@@ -32,3 +32,6 @@ deep-clean: clean
 
 check-licenses-go:
 	./check_licence.sh
+
+check-licenses-python:
+	./check_python_licenses.sh
