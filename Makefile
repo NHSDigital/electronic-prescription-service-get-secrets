@@ -30,8 +30,10 @@ deep-clean: clean
 	rm -rf .venv
 	find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 
-check-licenses-go:
-	./check_licence.sh
+check-licenses: check-licenses-python check-licenses-go
 
 check-licenses-python:
 	./check_python_licenses.sh
+
+check-licenses-go:
+	./check_licence.sh
