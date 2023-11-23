@@ -39,7 +39,7 @@
         "github.vscode-github-actions"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/workspaces/electronic-prescription-service-account-resources/.venv/bin/python",
+        "python.defaultInterpreterPath": "/workspaces/electronic-prescription-service-get-secrets/.venv/bin/python",
         "python.analysis.autoSearchPaths": true,
         "python.analysis.extraPaths": [],
         "python.testing.unittestEnabled": false,
@@ -51,7 +51,12 @@
         "editor.formatOnType": false, // required
         "editor.formatOnSave": true, // optional
         "editor.formatOnSaveMode": "file",
-        "cSpell.words": ["fhir", "Formik", "pino", "serialisation"]
+        "cSpell.words": [
+          "fhir",
+          "Formik",
+          "pino",
+          "serialisation"
+        ]
       }
     }
   },
