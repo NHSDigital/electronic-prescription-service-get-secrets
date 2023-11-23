@@ -1,4 +1,4 @@
-name: quality checks
+name: build
 
 on:
   workflow_call:
@@ -7,7 +7,7 @@ on:
         required: true
 
 jobs:
-  quality_checks:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,3 +47,6 @@ jobs:
 
       - name: run lint
         run: make lint
+
+      - name: run compile-go
+        run: make compile-go

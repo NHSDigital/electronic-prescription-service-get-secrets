@@ -9,8 +9,8 @@ env:
   BRANCH_NAME: ${{ github.event.ref.BRANCH_NAME }}
 
 jobs:
-  quality_checks:
-    uses: ./.github/workflows/quality_checks.yml
+  build:
+    uses: ./.github/workflows/build.yml
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
@@ -25,7 +25,7 @@ jobs:
           echo "commit_id=${{ github.sha }}" >> "$GITHUB_OUTPUT"
 
   tag_release:
-    needs: quality_checks
+    needs: build
     runs-on: ubuntu-latest
     outputs:
       spec_version: ${{steps.output_spec_version.outputs.SPEC_VERSION}}
@@ -80,6 +80,7 @@ jobs:
         with:
           tag: ${{ env.SPEC_VERSION }}
           commit: ${{  github.sha }}
+          artifacts: lib/get-secrets-layer.zip
           body: |
             ## Commit message
             ${{ github.event.head_commit.message }}
