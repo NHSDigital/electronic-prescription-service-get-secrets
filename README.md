@@ -33,8 +33,6 @@ The code is modified from the article at https://aws.amazon.com/blogs/compute/cr
 - `.devcontainer` Contains a dockerfile and vscode devcontainer definition
 - `.github` Contains github workflows that are used for building and deploying from pull requests and releases
 - `.vscode` Contains vscode workspace file
-- `cloudformation/` Contains cloudformation files used to create resources for CI builds and deployments
-- `SAMtemplates/` Contains the SAM templates used to define the stacks
 
 ## Contributing
 
