@@ -89,9 +89,8 @@ A combination of these checks are also run in CI.
 
 There are `make` commands that are run as part of the CI pipeline and help alias some functionality during development.
 
-#### install targets
+#### Install targets
 
-- `install-node` installs node dependencies
 - `install-python` installs python dependencies
 - `install-hooks` installs git pre commit hooks
 - `install` runs all install targets
@@ -113,9 +112,9 @@ There are `make` commands that are run as part of the CI pipeline and help alias
 
 #### Check licenses
 
-- `check-licenses` checks licenses for all packages used - calls check-licenses-node, check-licenses-python, check-licenses-golang
-- `check-licenses-node` checks licenses for all node code
+- `check-licenses` checks licenses for all packages used - calls check-licenses-python, check-licenses-go
 - `check-licenses-python` checks licenses for all python code
+- `check-licenses-go` checks licenses for all go code
 
 #### CLI Login to AWS
 
