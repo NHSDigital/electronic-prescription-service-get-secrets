@@ -6,10 +6,7 @@ guard-%:
 
 .PHONY: install build test publish release clean lint
 
-install: install-python install-hooks install-node
-
-install-node:
-	npm ci
+install: install-python install-hooks
 
 install-python:
 	poetry install
