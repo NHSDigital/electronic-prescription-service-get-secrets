@@ -70,6 +70,12 @@ jobs:
         run: echo "SPEC_VERSION=${{  github.ref_name }}" >> $GITHUB_ENV
         if: github.ref != 'refs/heads/main'
 
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.BUILD_ARTIFACT }}
+          path: .
+
       - name: Create release (tags and main)
         id: create-release
         # using commit hash for version v1.13.0
