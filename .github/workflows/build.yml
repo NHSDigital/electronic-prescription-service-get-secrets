@@ -50,3 +50,11 @@ jobs:
 
       - name: run compile-go
         run: make compile-go
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: packaged_code
+          path: |
+            .aws-sam/build
+            packages/getSecretLayer/lib/get-secrets-layer.zip
