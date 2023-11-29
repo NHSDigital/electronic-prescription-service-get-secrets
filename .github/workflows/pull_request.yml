@@ -1,0 +1,14 @@
+name: pull_request
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
