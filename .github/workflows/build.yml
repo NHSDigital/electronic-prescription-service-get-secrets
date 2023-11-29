@@ -56,4 +56,4 @@ jobs:
         with:
           name: packaged_code
           path: |
-            lib/
+            lib/get-secrets-layer.zip
