@@ -73,7 +73,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ inputs.BUILD_ARTIFACT }}
+          name: packaged_code
           path: .
 
       - name: Create release (tags and main)
