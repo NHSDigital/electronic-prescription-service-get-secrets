@@ -64,7 +64,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: packaged_code
-          path: .
+          path: lib
 
       - name: Create release (tags and main)
         id: create-release
