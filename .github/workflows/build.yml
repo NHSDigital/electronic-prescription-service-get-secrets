@@ -56,5 +56,4 @@ jobs:
         with:
           name: packaged_code
           path: |
-            .aws-sam/build
-            packages/getSecretLayer/lib/get-secrets-layer.zip
+            lib/
