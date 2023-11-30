@@ -14,16 +14,6 @@ jobs:
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  get_commit_id:
-    runs-on: ubuntu-latest
-    outputs:
-      commit_id: ${{ steps.commit_id.outputs.commit_id }}
-    steps:
-      - name: Get Commit ID
-        id: commit_id
-        run: |
-          echo "commit_id=${{ github.sha }}" >> "$GITHUB_OUTPUT"
-
   tag_release:
     needs: build
     runs-on: ubuntu-latest
@@ -74,7 +64,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: packaged_code
-          path: .
+          path: lib
 
       - name: Create release (tags and main)
         id: create-release
