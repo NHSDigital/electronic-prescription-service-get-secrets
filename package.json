@@ -33,7 +33,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "esbuild": "^0.19.5"
+    "esbuild": "^0.19.8"
   },
   "bugs": {
     "url": "https://github.com/NHSDigital/electronic-prescription-service-get-secrets/issues"
