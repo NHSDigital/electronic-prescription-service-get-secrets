@@ -15,7 +15,7 @@ updates:
   # golang workspace  ###############
   ###################################
   - package-ecosystem: gomod
-    directory: /
+    directory: /src
     schedule:
       interval: daily
 
