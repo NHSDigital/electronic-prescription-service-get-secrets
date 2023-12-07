@@ -8,5 +8,5 @@ go 1.15
 require (
 	github.com/aws/aws-sdk-go-v2 v1.23.5
 	github.com/aws/aws-sdk-go-v2/config v1.7.0
-	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.6.0
+	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.25.3
 )
