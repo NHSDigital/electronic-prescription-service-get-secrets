@@ -7,7 +7,7 @@ It is called by an Apigee proxy that is defined at https://github.com/NHSDigital
 
 ## Functionality
 
-This repository is designed to create a Lambda layer that can be invoked during Lambda startup. Its primary purpose is to inject secret values into environment variables. Specifically, it should be used by any Lambda that utilizes the spineClient to set spine connectivity variables.
+This repository is designed to create a Lambda layer that can be invoked during Lambda startup. Its primary purpose is to inject secret values into environment variables. Specifically, it should be used by any Lambda that utilizes the spineClient or serviceSearchClient, to set connectivity variables.
 
 ### Usage
 
