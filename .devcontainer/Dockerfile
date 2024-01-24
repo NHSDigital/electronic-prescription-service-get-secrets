@@ -31,11 +31,10 @@ ENV PATH="$PATH:/home/vscode/.asdf/bin/"
 RUN asdf plugin add python; \
     asdf plugin add poetry https://github.com/asdf-community/asdf-poetry.git; \
     asdf plugin add shellcheck https://github.com/luizm/asdf-shellcheck.git; \
-    asdf plugin-add direnv; \
-    asdf plugin-add golang https://github.com/kennyp/asdf-golang.git; \
+    asdf plugin add direnv; \
+    asdf plugin add golang https://github.com/kennyp/asdf-golang.git; \
     asdf plugin add golangci-lint https://github.com/hypnoglow/asdf-golangci-lint.git; \
     asdf plugin add actionlint;
-
 
 WORKDIR /workspaces/electronic-prescription-service-get-secrets
 ADD .tool-versions /workspaces/electronic-prescription-service-get-secrets/.tool-versions

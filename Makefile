@@ -23,7 +23,7 @@ lint-go:
 lint-githubactions:
 	actionlint
 
-lint: lint-go
+lint: lint-go lint-githubactions
 
 clean:
 	rm -rf ./lib
