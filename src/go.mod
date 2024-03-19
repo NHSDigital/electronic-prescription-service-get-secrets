@@ -6,7 +6,7 @@ module go-retrieve-secret
 go 1.15
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.25.3
+	github.com/aws/aws-sdk-go-v2 v1.26.0
 	github.com/aws/aws-sdk-go-v2/config v1.27.7
-	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.28.3
+	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.28.4
 )
