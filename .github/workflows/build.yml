@@ -57,3 +57,10 @@ jobs:
           name: packaged_code
           path: |
             lib/get-secrets-layer.zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packaged_code
+          path: |
+            lib/get-secrets-layer-arm.zip
