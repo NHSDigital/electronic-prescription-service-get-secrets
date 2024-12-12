@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ./src
+cd ./src || exit 1
 
 # install dependencies
 go mod download
@@ -13,7 +13,7 @@ PATH=$PATH:$GOROOT/../packages/bin
 # install go-licencses
 go install github.com/google/go-licenses@latest
 
-echo "Report on licensces"
+echo "Report on licenses"
 go-licenses report . 
 
 echo
