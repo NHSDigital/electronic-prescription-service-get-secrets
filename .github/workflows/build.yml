@@ -12,7 +12,7 @@ jobs:
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: quality_checks
     steps:
       - name: Checkout code
