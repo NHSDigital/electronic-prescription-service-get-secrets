@@ -9,7 +9,7 @@ RUN apt-get update \
     jq apt-transport-https ca-certificates gnupg-agent \
     software-properties-common bash-completion python3-pip make libbz2-dev \
     libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
-    xz-utils tk-dev liblzma-dev netcat
+    xz-utils tk-dev liblzma-dev netcat direnv
 
 # install aws stuff
 RUN wget -O /tmp/awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" && \
@@ -18,20 +18,19 @@ RUN wget -O /tmp/awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-x86
     rm tmp/awscliv2.zip && \
     rm -rf /tmp/aws-cli
 
+# Install ASDF
+RUN wget -O /tmp/asdf.tar.gz https://github.com/asdf-vm/asdf/releases/download/v0.17.0/asdf-v0.17.0-linux-amd64.tar.gz; \
+    tar -xvzf /tmp/asdf.tar.gz -C /tmp/; \
+    mv /tmp/asdf /usr/bin
+
 USER vscode
 
-# Install ASDF
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3; \
-    echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc; \
-    echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc;
-
-ENV PATH="$PATH:/home/vscode/.asdf/bin/"
+ENV PATH="$PATH:/home/vscode/.asdf/shims/"
 
 # Install ASDF plugins
 RUN asdf plugin add python; \
     asdf plugin add poetry https://github.com/asdf-community/asdf-poetry.git; \
     asdf plugin add shellcheck https://github.com/luizm/asdf-shellcheck.git; \
-    asdf plugin add direnv; \
     asdf plugin add golang https://github.com/kennyp/asdf-golang.git; \
     asdf plugin add golangci-lint https://github.com/hypnoglow/asdf-golangci-lint.git; \
     asdf plugin add actionlint;
@@ -42,5 +41,4 @@ ADD .tool-versions /home/vscode/.tool-versions
 
 RUN asdf install; \
     asdf reshim python; \
-    asdf reshim poetry; \
-    asdf direnv setup --shell bash --version 2.32.2;
+    asdf reshim poetry
