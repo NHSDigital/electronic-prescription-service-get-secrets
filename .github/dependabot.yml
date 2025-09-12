@@ -12,6 +12,7 @@ updates:
       interval: "weekly"
       day: "friday"
       time: "18:00" # UTC
+    open-pull-requests-limit: 20
 
   ###################################
   # golang workspace  ###############
@@ -22,6 +23,7 @@ updates:
       interval: "weekly"
       day: "friday"
       time: "18:00" # UTC
+    open-pull-requests-limit: 20
 
   ###################################
   # Poetry  #########################
@@ -33,3 +35,4 @@ updates:
       day: "friday"
       time: "18:00" # UTC
     versioning-strategy: increase
+    open-pull-requests-limit: 20
