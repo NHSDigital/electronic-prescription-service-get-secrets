@@ -8,7 +8,7 @@ go 1.23
 toolchain go1.24.3
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.39.3
+	github.com/aws/aws-sdk-go-v2 v1.39.4
 	github.com/aws/aws-sdk-go-v2/config v1.31.13
 	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.39.7
 )
