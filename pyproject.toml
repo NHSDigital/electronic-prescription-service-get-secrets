@@ -22,7 +22,7 @@ boto3 = "^1.40.68"
 argparse = "^1.4.0"
 pre-commit = "^4.3.0"
 pytest = "^8.4.2"
-cfn-lint = "^1.40.2"
+cfn-lint = "^1.40.4"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.3.0"
