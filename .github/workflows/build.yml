@@ -29,8 +29,7 @@ jobs:
     uses: NHSDigital/eps-common-workflows/.github/workflows/pr_title_check.yml@a7daff06de7b695f601d9b1723ca184daca7d898
 
   quality_checks:
-    uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@26a3c37dbab1b2f92e3e65ab579d0440408fdfd3
-    # uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@a7daff06de7b695f601d9b1723ca184daca7d898
+    uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@a7daff06de7b695f601d9b1723ca184daca7d898
     needs: [get_asdf_version]
     with:
       reinstall_poetry: true
