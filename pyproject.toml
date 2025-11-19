@@ -18,15 +18,15 @@ jsonpath-rw = "^1.4.0"
 semver = "^3.0.4"
 gitpython = "^3.1.45"
 requests = "^2.32.5"
-boto3 = "^1.40.68"
+boto3 = "^1.40.73"
 argparse = "^1.4.0"
-pre-commit = "^4.3.0"
+pre-commit = "^4.4.0"
 pytest = "^8.4.2"
 cfn-lint = "^1.40.4"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.3.0"
-black = "^25.9"
+black = "^25.11"
 pip-licenses = "^5.5.0"
 jinja2 = "^3.1.5"
 
