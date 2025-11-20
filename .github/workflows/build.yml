@@ -30,7 +30,7 @@ jobs:
           echo "TAG_FORMAT=$TAG_FORMAT" >> "$GITHUB_OUTPUT"
 
   quality_checks:
-    uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@a7daff06de7b695f601d9b1723ca184daca7d898
+    uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@3932c174e457b9d91b2e36fde68b9ae6fff32b9a
     needs: [get_asdf_version]
     with:
       reinstall_poetry: true
