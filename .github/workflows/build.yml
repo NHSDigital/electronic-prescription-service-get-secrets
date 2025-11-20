@@ -6,6 +6,9 @@ on:
       artifact-url:
         description: "URL of the uploaded build artifact"
         value: ${{ jobs.build.outputs.artifact-url }}
+      artifact-id:
+        description: "id of the uploaded build artifact"
+        value: ${{ jobs.build.outputs.artifact-id }}
     secrets:
       SONAR_TOKEN:
         required: true
@@ -42,6 +45,7 @@ jobs:
     needs: [quality_checks, get_asdf_version]
     outputs:
       artifact-url: ${{ steps.upload-artifact.outputs.artifact-url }}
+      artifact-id: ${{ steps.upload-artifact.outputs.artifact-id }}
     steps:
       - name: Checkout code
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
