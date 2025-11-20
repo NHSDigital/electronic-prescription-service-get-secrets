@@ -20,7 +20,7 @@ jobs:
       tag_format: ${{ steps.load-config.outputs.TAG_FORMAT }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
 
       - name: Get asdf version
         id: asdf-version
@@ -33,7 +33,7 @@ jobs:
 
   tag_release:
     needs: [build, get_asdf_version]
-    uses: NHSDigital/eps-common-workflows/.github/workflows/tag-release.yml@add_artifacte
+    uses: NHSDigital/eps-common-workflows/.github/workflows/tag-release.yml@ba86b0c6a2a3d4b87398e538e410cec90f57133d
     with:
       dry_run: false
       asdfVersion: ${{ needs.get_asdf_version.outputs.asdf_version }}
@@ -41,5 +41,7 @@ jobs:
       publish_package: false
       tag_format: ${{ needs.get_asdf_version.outputs.tag_format }}
       extra_artifact_name: "get-secrets-layer.zip"
-      extra_artifact_url: ${{ needs.build.outputs.artifact-url }}
+      extra_artifact_id: ${{ needs.build.outputs.artifact-id }}
+      extra_artifact_run_id: ${{ github.run_id }}
+      extra_artifact_repository: ${{ github.repository }}
     secrets: inherit
