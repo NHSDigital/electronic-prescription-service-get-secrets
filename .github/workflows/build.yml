@@ -2,6 +2,10 @@ name: build
 
 on:
   workflow_call:
+    outputs:
+      artifact-url:
+        description: "URL of the uploaded build artifact"
+        value: ${{ jobs.build.outputs.artifact-url }}
     secrets:
       SONAR_TOKEN:
         required: true
@@ -36,6 +40,8 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     needs: [quality_checks, get_asdf_version]
+    outputs:
+      artifact-url: ${{ steps.upload-artifact.outputs.artifact-url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
@@ -73,6 +79,7 @@ jobs:
         run: make compile-go
 
       - name: Upload build artifact
+        id: upload-artifact
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4
         with:
           name: packaged_code
