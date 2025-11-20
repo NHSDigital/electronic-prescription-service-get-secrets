@@ -13,6 +13,8 @@ updates:
       day: "friday"
       time: "18:00" # UTC
     open-pull-requests-limit: 20
+    commit-message:
+      prefix: "Upgrade: [dependabot] - "
 
   ###################################
   # golang workspace  ###############
@@ -24,6 +26,8 @@ updates:
       day: "friday"
       time: "18:00" # UTC
     open-pull-requests-limit: 20
+    commit-message:
+      prefix: "Upgrade: [dependabot] - "
 
   ###################################
   # Poetry  #########################
@@ -36,3 +40,5 @@ updates:
       time: "18:00" # UTC
     versioning-strategy: increase
     open-pull-requests-limit: 20
+    commit-message:
+      prefix: "Upgrade: [dependabot] - "
