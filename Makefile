@@ -6,13 +6,10 @@ guard-%:
 
 .PHONY: install build test publish release clean lint
 
-install: install-python install-hooks install-go
+install: install-python install-hooks
 
 install-python:
 	poetry install
-
-install-go:
-	cd src && go mod vendor
 
 install-hooks: install-python
 	poetry run pre-commit install --install-hooks --overwrite

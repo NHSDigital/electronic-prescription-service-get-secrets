@@ -20,4 +20,3 @@ release_notes
 .aws-sam
 lib/
 *.tsbuildinfo
-src/vendor/
