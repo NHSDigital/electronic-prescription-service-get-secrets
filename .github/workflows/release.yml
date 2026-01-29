@@ -38,7 +38,6 @@ jobs:
       dry_run: false
       asdfVersion: ${{ needs.get_asdf_version.outputs.asdf_version }}
       branch_name: main
-      publish_packages: false
       tag_format: ${{ needs.get_asdf_version.outputs.tag_format }}
       extra_artifact_name: "get-secrets-layer.zip"
       extra_artifact_id: ${{ needs.build.outputs.artifact-id }}
