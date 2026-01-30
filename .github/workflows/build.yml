@@ -33,7 +33,7 @@ jobs:
           echo "TAG_FORMAT=$TAG_FORMAT" >> "$GITHUB_OUTPUT"
 
   quality_checks:
-    uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@b933ef1bb3527fd7e7d5a7629fbd4e4dd94bf1b4
+    uses: NHSDigital/eps-common-workflows/.github/workflows/quality-checks.yml@e31e25273fb87450be4ef763ddbed4f531c45f8e
     needs: [get_asdf_version]
     with:
       reinstall_poetry: true
@@ -61,7 +61,7 @@ jobs:
           asdf_version: ${{ needs.get_asdf_version.outputs.asdf_version }}
 
       - name: Cache asdf
-        uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
         with:
           path: |
             ~/.asdf
