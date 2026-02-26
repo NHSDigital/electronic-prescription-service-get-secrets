@@ -7,7 +7,10 @@ It is called by an Apigee proxy that is defined at https://github.com/NHSDigital
 
 ## Functionality
 
-This repository is designed to create a Lambda layer that can be invoked during Lambda startup. Its primary purpose is to inject secret values into environment variables. Specifically, it should be used by any Lambda that utilizes the spineClient or serviceSearchClient, to set connectivity variables.
+This repository creates a Lambda layer that can be invoked during Lambda startup.
+It reads environment variables that end 'ARN' and seeks to read the secret value from AWS Secrets Manager into a new variable, whose name has the ARN suffix removed.
+If no such ARN exists, or is not accessible, the layer will stop the lambda starting.
+Specifically, it should be used by any Lambda that utilizes the spineClient or serviceSearchClient, to set connectivity variables.
 
 ### Usage
 
