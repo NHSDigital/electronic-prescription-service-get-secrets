@@ -1,13 +1,14 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "Ubuntu",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "name": "eps-get-secrets",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "..",
-    "args":  {
-      "DOCKER_GID": "${env:DOCKER_GID:}"
+    "args": {
+      "DOCKER_GID": "${env:DOCKER_GID:}",
+      "IMAGE_NAME": "node_24_python_3_14_golang_1_24",
+      "IMAGE_VERSION": "ci-21e865b",
+      "USER_UID": "${localEnv:USER_ID:}",
+      "USER_GID": "${localEnv:GROUP_ID:}"
     }
   },
   "mounts": [
@@ -15,14 +16,7 @@
     "source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind",
     "source=${env:HOME}${env:USERPROFILE}/.gnupg,target=/home/vscode/.gnupg,type=bind"
   ],
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  "features": {
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
-      "version": "latest",
-      "moby": "true",
-      "installDockerBuildx": "true"
-    }
-  },
+  "features": {},
   "customizations": {
     "vscode": {
       "extensions": [
@@ -48,10 +42,10 @@
         "python.testing.pytestEnabled": true,
         "python.linting.pylintEnabled": false,
         "python.linting.flake8Enabled": true,
-        "python.linting.enabled": true, // required to format on save
-        "editor.formatOnPaste": false, // required
-        "editor.formatOnType": false, // required
-        "editor.formatOnSave": true, // optional
+        "python.linting.enabled": true,
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
         "editor.formatOnSaveMode": "file",
         "cSpell.words": [
           "fhir",
@@ -65,14 +59,5 @@
   "remoteEnv": {
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
   },
-  "postCreateCommand": "rm -f ~/.docker/config.json; git config --global --add safe.directory /workspaces/electronic-prescription-service-get-secrets; make install; direnv allow . && docker build -f https://raw.githubusercontent.com/NHSDigital/eps-workflow-quality-checks/refs/tags/v4.0.4/dockerfiles/nhsd-git-secrets.dockerfile -t git-secrets . && poetry run pre-commit install --install-hooks -f"
-  // "features": {},
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": ""
-  // Configure tool-specific properties.
-  // "customizations": {},
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+  "postAttachCommand": "git-secrets --register-aws; git-secrets --add-provider -- cat /usr/share/secrets-scanner/nhsd-rules-deny.txt"
 }
