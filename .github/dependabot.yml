@@ -17,19 +17,6 @@ updates:
       prefix: "Upgrade: [dependabot] - "
 
   ###################################
-  # golang workspace  ###############
-  ###################################
-  - package-ecosystem: gomod
-    directory: /src
-    schedule:
-      interval: "weekly"
-      day: "friday"
-      time: "18:00" # UTC
-    open-pull-requests-limit: 20
-    commit-message:
-      prefix: "Upgrade: [dependabot] - "
-
-  ###################################
   # Poetry  #########################
   ###################################
   - package-ecosystem: "pip"
@@ -37,8 +24,21 @@ updates:
     schedule:
       interval: "weekly"
       day: "friday"
-      time: "18:00" # UTC
+      time: "20:00" # UTC
     versioning-strategy: increase
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "Upgrade: [dependabot] - "
+
+  ###################################
+  # golang workspace  ###############
+  ###################################
+  - package-ecosystem: gomod
+    directory: /src
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "22:00" # UTC
     open-pull-requests-limit: 20
     commit-message:
       prefix: "Upgrade: [dependabot] - "
