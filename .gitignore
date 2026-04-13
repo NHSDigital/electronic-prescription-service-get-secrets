@@ -21,3 +21,4 @@ release_notes
 lib/
 *.tsbuildinfo
 .trivy_out/
+.sbom/
