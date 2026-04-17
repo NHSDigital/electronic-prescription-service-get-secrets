@@ -26,7 +26,7 @@ repos:
       - id: lint-getSecretLayer
         name: Lint getSecretLayer
         entry: make
-        args: ["lint-go"]
+        args: [ "lint-go" ]
         language: system
         files: ^src
         pass_filenames: false
@@ -34,10 +34,10 @@ repos:
       - id: lint-githubactions
         name: Lint github actions
         entry: make
-        args: ["lint-githubactions"]
+        args: [ "lint-githubactions" ]
         language: system
         files: ^.github
-        types_or: [yaml]
+        types_or: [ yaml ]
         pass_filenames: false
 
   - repo: local
@@ -62,13 +62,14 @@ repos:
         pass_filenames: false
         always_run: true
 
-      - id: git-secrets
-        name: Git Secrets
-        description: git-secrets scans commits, commit messages, and --no-ff merges to prevent adding secrets into your git repositories.
+      - id: gitleaks
+        name: Git Leaks
+        description: gitleaks scans commits, commit messages, and --no-ff merges to
+          prevent adding secrets into your git repositories.
         entry: bash
         args:
           - -c
-          - "git-secrets --pre_commit_hook"
+          - "gitleaks git --pre-commit --redact --staged --verbose"
         language: system
 fail_fast: true
-default_stages: [pre-commit]
+default_stages: [ pre-commit ]
