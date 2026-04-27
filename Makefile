@@ -32,10 +32,5 @@ deep-clean: clean
 	rm -rf .venv
 	find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 
-check-licenses: check-licenses-python check-licenses-go
-
-check-licenses-python:
-	scripts/check_python_licenses.sh
-
-check-licenses-go:
-	scripts/check_go_licenses.sh
+%:
+	@$(MAKE) -f /usr/local/share/eps/Mk/common.mk $@
