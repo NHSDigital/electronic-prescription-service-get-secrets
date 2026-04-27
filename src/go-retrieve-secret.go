@@ -61,7 +61,7 @@ func main() {
 	}
 
 	// output the secret value
-	fmt.Printf(*result.SecretString)
+	fmt.Print(aws.ToString(result.SecretString))
 }
 
 func getCommandParams() {
